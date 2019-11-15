@@ -1,0 +1,313 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.applet.*;
+import java.applet.Applet;
+import java.util.*;
+import java.awt.Graphics2D; 
+import java.lang.*;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
+
+
+
+public class buttons{
+public static void main(String [] args) {
+	
+	JFrame frame = new JFrame("seasons");
+	frame.setVisible(true);
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setSize(300,465);
+	JPanel panel = new JPanel();
+	frame.add(panel);
+	JButton button = new JButton("summer");
+	JButton button1 = new JButton("winter");
+	JButton button2 = new JButton("Autumn");
+	JButton button3 = new JButton("rainy");
+	button.setPreferredSize(new Dimension(400, 100));
+	button1.setPreferredSize(new Dimension(400, 100));
+	button2.setPreferredSize(new Dimension(400, 100));
+ 	button3.setPreferredSize(new Dimension(400, 100));
+	panel.add(button);	
+	panel.add(button1);
+	panel.add(button2);
+	panel.add(button3);
+	button.addActionListener(new Action());
+	button1.addActionListener(new Action1());
+	button2.addActionListener(new Action2());
+	button3.addActionListener(new Action3());
+	
+}
+	static class Action implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			JFrame frame2 = new JFrame("summer");
+			
+
+			
+			class summer extends JPanel{
+				 
+				public void paint(Graphics g) {	
+					super.paintComponent(g);
+					
+					g.drawOval(100, 100, 100, 100);
+					g.setColor(Color.YELLOW);
+					g.fillOval(100, 100, 100, 100);
+					g.setColor(Color.white);
+					//clouds
+					g.fillOval(210, 120, 100, 50);
+					
+					g.fillOval(320, 130, 100, 50);
+					g.fillOval(400, 138, 100, 50);
+					g.fillOval(520, 140, 100, 50);
+					
+					g.fillOval(610, 125, 100, 50);
+					g.fillOval(710, 149, 100, 50);
+					g.fillOval(800, 138, 100, 50);
+					
+					g.fillOval(920, 120, 100, 50);
+					g.fillOval(1020, 137, 100, 50);
+					g.fillOval(1130, 130, 100, 50);
+					g.fillOval(1230, 137, 100, 50);
+					
+					
+					
+					
+					g.setColor(Color.green);
+					
+					g.drawRect(1, 500, 1500, 100);
+					g.fillRect(1, 500, 1500, 300);
+					g.drawArc(1,485, 1500, 50, 0, 180);
+					g.fillArc(1, 485, 1500, 50, 0, 180);
+					g.setColor(Color.black);
+					g.drawString("this is summer the hottest season", 500, 300);
+				
+				}
+				
+			}
+			summer summerpanel = new summer(); 
+			
+			frame2.add(summerpanel);
+			frame2.setVisible(true);
+			summerpanel.setBackground(new Color(35,206,235));
+			frame2.setSize(1000,1000);
+		}
+	}
+	
+static class Action1 implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			JFrame frame2 = new JFrame("winter");
+			
+			class winter extends JPanel{
+				 
+				public void paint(Graphics g) {	
+					super.paintComponent(g);	
+					g.drawOval(10, 10, 100, 50);
+					//clouds
+					g.setColor(Color.GRAY);
+					g.fillOval(10, 10, 100, 50);
+					g.fillOval(90, 15, 100, 50);
+					g.fillOval(180, 5, 100, 50);
+				
+					g.fillOval(320, 10, 100, 50);
+					g.fillOval(400, 16, 100, 50);
+					g.fillOval(520, 12, 100, 50);
+					
+					g.fillOval(610, 11, 100, 50);
+					g.fillOval(710, 19, 100, 50);
+					g.fillOval(800, 3, 100, 50);
+					
+					g.fillOval(920, 10, 100, 50);
+					g.fillOval(1020, 5, 100, 50);
+					g.fillOval(1130, 7, 100, 50);
+					g.fillOval(1230, 7, 100, 50);
+					
+				
+					
+					g.setColor(Color.WHITE);
+					
+					g.drawRect(1, 510, 1500, 100);
+					g.fillRect(1, 510, 1500, 300);
+					
+					g.drawArc(1,485, 1500, 50, 0, 180);
+					g.setColor(Color.white);
+					g.fillArc(0, 485, 1500, 50, 0, 180);
+					
+					//snowman
+					g.setColor(Color.black);
+					g.drawOval(360, 330, 30, 30);
+					g.drawOval(410, 330, 30, 30);
+					g.drawOval(350, 300, 100, 100);
+					g.drawOval(310, 390, 200, 200);
+					
+					
+					g.setColor(Color.white);					
+					g.fillOval(350, 300, 100, 100);
+					g.fillOval(310, 390, 200, 200);
+					g.setColor(Color.BLACK);
+					g.fillOval(360, 330, 30, 30);
+					g.fillOval(410, 330, 30, 30);
+					g.fillOval(390, 350, 20, 20);
+					g.fillOval(400, 440, 20, 20);
+					g.fillOval(400, 480, 20, 20);
+					g.fillOval(400, 520, 20, 20);
+					
+					//snow man arm
+					double theta = Math.toRadians(40);
+					// create rect centred on the point we want to rotate it about
+					Rectangle2D rect = new Rectangle2D.Double(-120/2., -10/2., 120, 10);
+                    
+					AffineTransform transform = new AffineTransform();
+					transform.rotate(theta);
+					transform.translate(490, 150); 
+					Shape rotatedRect = transform.createTransformedShape(rect);
+
+					Graphics2D graphics = (Graphics2D)g; 
+
+					graphics.draw(rotatedRect);
+					graphics.fill(rotatedRect);
+					
+					g.drawRect(490, 460, 100, 10);
+					g.fillRect(490, 460, 100, 10);
+					
+					//snowflakes
+					g.setColor(Color.white);
+					
+					 for (int i = 0; i < 1000; i++) {
+				            int x =  (int) Math.ceil(Math.random() * 1000);
+				            int y =  (int) Math.ceil(Math.random() * 1000);            
+
+				                g.fillOval(i+x, i+y, 5, 5); 
+			      
+					 }
+					}
+				
+			}
+			winter winterpanel = new winter(); 
+			
+			frame2.add(winterpanel);
+			frame2.setVisible(true);
+			winterpanel.setBackground(new Color(44,56,69));
+			frame2.setSize(1000,1000);
+		}
+	}
+
+
+static class Action2 implements ActionListener {
+	
+	public void actionPerformed(ActionEvent e) {
+		
+		JFrame frame2 = new JFrame("Autumn");
+		
+		class spring extends JPanel{
+		
+
+			
+			  private void drawTree(Graphics g, int x1, int y1, double angle, int depth) {
+			        if (depth == 0) return;
+			        int x2 = x1 + (int) (Math.cos(Math.toRadians(angle)) * depth * 10.0);
+			        int y2 = y1 + (int) (Math.sin(Math.toRadians(angle)) * depth * 10.0);
+			        g.drawLine(x1, y1, x2, y2);
+			        drawTree(g, x2, y2, angle - 20, depth - 1);
+			        drawTree(g, x2, y2, angle + 20, depth - 1);
+			    }
+			 
+			    @Override
+			    public void paint(Graphics g) {
+			    	
+			    	g.drawOval(100, 100, 50, 50);
+					g.setColor(Color.YELLOW);
+					g.fillOval(100, 100, 50, 50);
+					g.setColor(Color.black);
+					
+					
+					g.setColor(Color.green);
+					
+					g.drawRect(1, 500, 1500, 100);
+					g.fillRect(1, 500, 1500, 300);
+					g.drawArc(1,485, 1500, 50, 0, 180);
+					g.fillArc(1, 485, 1500, 50, 0, 180);
+			        g.setColor(Color.BLACK);
+			        drawTree(g, 400, 500, -90, 9);
+			    }
+			 
+			
+		}
+		spring springpanel = new spring(); 
+		frame2.add(springpanel);
+		frame2.setVisible(true);
+		springpanel.setBackground(new Color(35,206,235));
+		frame2.setSize(1000,1000);
+	}
+}
+
+
+static class Action3 implements ActionListener {
+	
+	public void actionPerformed(ActionEvent e) {
+		
+		JFrame frame2 = new JFrame("winter");
+		
+		class winter extends JPanel{
+			 
+			public void paint(Graphics g) {	
+				super.paintComponent(g);	
+				g.drawOval(10, 10, 100, 50);
+				g.setColor(Color.GRAY);
+				g.fillOval(10, 10, 100, 50);
+				g.fillOval(90, 15, 100, 50);
+				g.fillOval(180, 5, 100, 50);
+			
+				g.fillOval(320, 10, 100, 50);
+				g.fillOval(400, 16, 100, 50);
+				g.fillOval(520, 12, 100, 50);
+				
+				g.fillOval(610, 11, 100, 50);
+				g.fillOval(710, 19, 100, 50);
+				g.fillOval(800, 3, 100, 50);
+				
+				g.fillOval(920, 10, 100, 50);
+				g.fillOval(1020, 5, 100, 50);
+				g.fillOval(1130, 7, 100, 50);
+				g.fillOval(1230, 7, 100, 50);
+				
+				
+				
+				
+				
+				
+				g.setColor(new Color(150,75,0));
+				
+				g.drawRect(1, 510, 1500, 100);
+				g.fillRect(1, 510, 1500, 300);
+				
+				g.drawArc(1,485, 1500, 50, 0, 180);
+				g.setColor(Color.blue);
+				g.fillArc(0, 485, 1500, 50, 0, 180);
+				
+				 for (int i = 0; i < 1000; i++) {
+			            int x =  (int) Math.ceil(Math.random() * 1000);
+			            int y =  (int) Math.ceil(Math.random() * 1000);            
+
+			                g.fillOval(i+x, i+y, 5, 5); 
+		      
+				 }
+				}
+			
+		}
+		winter winterpanel = new winter(); 
+		
+		frame2.add(winterpanel);
+		frame2.setVisible(true);
+		winterpanel.setBackground(new Color(44,56,69));
+		frame2.setSize(1000,1000);
+	}
+}
+
+
+}
+
+
