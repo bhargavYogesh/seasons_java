@@ -1,3 +1,4 @@
 # seasons_java
 buttons created using JButtons
-![](bhargavYogesh/seasons_java/img/button.png)
+
+![buttons](https://github.com/bhargavYogesh/seasons_java/blob/master/img/button.PNG)
